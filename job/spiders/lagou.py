@@ -30,9 +30,9 @@ class LagouSpider(scrapy.Spider):
     def start_requests(self):
         # print(self.my_url)
         # print(self.headers)
-        data = {"first":"false","pn":"1","kd":"数据分析师"}
+        data = {"first":"false","pn":"2","kd":"数据分析师"}
         # print(data)
-        return [scrapy.http.FormRequest(self.my_url, headers=self.headers, formdata=data, callback=self.parse)]
+        return [scrapy.http.FormRequest(self.my_url, headers=(self.headers), formdata=data, callback=self.parse)]
 
     def parse(self, response):
         print("suss")
