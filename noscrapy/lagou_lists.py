@@ -4,7 +4,7 @@ import json
 import sys
 import io
 import codecs
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
 
 def get_header():
     headers = {
