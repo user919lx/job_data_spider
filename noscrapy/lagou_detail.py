@@ -3,7 +3,7 @@ import requests
 import codecs
 
 
-def save_html(text,index):
+def save_html(text, index):
     filename = "job_detail/lagou_" + str(index) + ".html"
     file = codecs.open(filename, "w", "utf-8-sig")
     file.write(text)
@@ -12,9 +12,9 @@ def save_html(text,index):
 
 s = requests.Session()
 count = 0
-for i in range(2, 21):
+for i in range(1, 21):
     json_filename = "job_lists/lagou_json_data_"+str(i)+".json"
-    with open(json_filename,encoding='utf-8-sig') as f:
+    with open(json_filename, encoding='utf-8-sig') as f:
         r = json.load(f)
         jobs = r['content']['positionResult']['result']
         for job in jobs:
