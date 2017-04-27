@@ -1,0 +1,4 @@
+# job_data_spider
+爬取招聘网站信息，根据情况不同，使用原生方法或Scrapy
+
+部分爬取结果参见noscrapy内的job_lists和job_detail
