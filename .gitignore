@@ -1,3 +1,4 @@
 .scrapy
 .idea
-nocrapy/job_detail
+noscrapy/clean_data
+noscrapy/temp
