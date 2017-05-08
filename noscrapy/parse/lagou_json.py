@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 import os
-kd = "数据分析"  # 搜索关键词
+kd = "数据工程"  # 搜索关键词
 city = ""  # 城市
 read_dir_path = "../temp/json/kd_"+kd
 write_path = "../clean_data/lagou_json_kd_"+kd+".xls"

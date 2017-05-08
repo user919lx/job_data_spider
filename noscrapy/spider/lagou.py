@@ -18,21 +18,27 @@ def store(text, index):
 
 i = 1
 while True:
-    print("i="+str(i))
     resp = requests.post(url, data={"first": "false", "pn": i, "kd": kd})
-    # try:
-    rtb = json.loads(resp.text)
-    count = rtb['content']['positionResult']['totalCount']
-    rtb = json.dumps(rtb, indent=4, ensure_ascii=False)
-    store(rtb, i)
-    if i*15 >= count:
-        break
-    else:
-        i = i+1
-    # except BaseException:
-    #     print("error")
-    #     print("resp", resp)
-    #     print("resp.text", resp.text)
+    if resp.text is None:
+        continue
+    try:
+        rtb = json.loads(resp.text)
+        count = rtb['content']['positionResult']['totalCount']
+        print("i=" + str(i), "totalCount", count / 15)
+
+        result = rtb['content']['positionResult']['result']
+        if len(result) == 0:
+            break
+        rtb = json.dumps(rtb, indent=4, ensure_ascii=False)
+        store(rtb, i)
+        if i*15 >= count:
+            break
+        else:
+            i = i+1
+    except json.decoder.JSONDecodeError:
+        print("error")
+        print("resp", resp)
+        print("resp.text", resp.text)
 
 
 
